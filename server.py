@@ -1,3 +1,42 @@
+'''
+Goal:
+    Create a TLS connection to a client, or set of clients.
+
+Steps to consider:
+    1. Client sends a hello, supported TLS version and supported cipher suites, and
+    a random number.
+
+    2. Server responds with a hello message, chosen TLS version, cipher suite,
+    and a random number.
+
+    3. Server sends its certificate to the Client containing the public key.
+
+    4. Client verifies certificate and sends its own certificate to the Server.
+
+    5. Client generates a pre-master secret, encrypts it using the server's public
+    key and sends the encrypted pre-master secret to the Server.
+
+    6. Server decrypts the master key with its private key and generates the master
+    secret.
+
+    7. Client and Server use the master secret to generate session keys for
+    symmetric encryption and message authentication.
+
+    8. Client send a Change Cipher Spec, indicating that it will begin using the
+    session keys for encryption and message authentication.
+
+    9. Client sends an encrypted handshake message to the server, using the
+    session keys.
+
+    10. Server sends its own Change Cipher Spec, indicating that it will start
+    using the session keys for encryption and message authentication.
+
+    11. Server sends an encrypted handshake message to the Client, which is
+    encrypted using the session keys.
+
+    12. TLS session is established.
+
+'''
 import socket
 
 server_ip = '0.0.0.0'
