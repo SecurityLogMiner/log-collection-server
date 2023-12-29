@@ -3,7 +3,7 @@ ca.key
 server.crt
 server.csr
 server.key
-
+instance_connect.sh
 
 # Added by cargo
 
