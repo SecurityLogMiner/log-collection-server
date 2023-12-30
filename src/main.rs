@@ -27,10 +27,10 @@ fn handle_client(mut stream: TcpStream) {
 
 fn main() {
     let port = 44331;
-    let listener = TcpListener::bind("127.0.0.1:44331")
+    let listener = TcpListener::bind("0.0.0.0:44331")
                         .expect("failed to bind address");
 
-    println!("log collection server running on 127.0.0.1:{}", port);
+    println!("log collection server running on 0.0.0.0:{}", port);
 
     for stream in listener.incoming() {
         match stream {
