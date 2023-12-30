@@ -1,14 +1,23 @@
 use std::net::{TcpListener, TcpStream};
 use std::io::{Read, Write};
+use std::str;
 
+
+// this function needs to have a db connection established so the stream can write
+// to it. 
 fn handle_client(mut stream: TcpStream) {
     let mut buffer = [0;1024];
+    //let mut db = std::fs::File::create("example.db").unwrap();
     
     match stream.read(&mut buffer) {
         Ok(size) => {
             let received_data = &buffer[..size];
-            println!("Rcvd data: {:?}", received_data);
-            stream.write_all(received_data).unwrap();
+            //db.write_all(received_data).unwrap();
+            let s = match str::from_utf8(received_data) {
+                Ok(val) => val,
+                Err(_) => "error reading incoming data",
+            };
+            println!("Rcvd data: {:?}", s);
         }
         Err(e) => {
             println!("Error reading from client: {}", e);
