@@ -9,6 +9,7 @@ on behalf of the client or server service.
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [DB Setup](#db-setup)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
