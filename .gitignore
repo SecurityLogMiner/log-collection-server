@@ -8,3 +8,7 @@ instance_connect.sh
 # Added by cargo
 
 /target
+
+# weird draw.io backup files when a diagram is open.
+\.\$*.bkp
+\.\$.*
