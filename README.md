@@ -82,34 +82,34 @@ NOTES:
 
 create user (see man createuser):
 ```
-    sudo -u postgres createuser -d -e -l testadmin
+sudo -u postgres createuser -d -e -l testadmin
 ```
 
 create database:
 ```
-    sudo -u testadmin createdb testadmin
+sudo -u testadmin createdb testadmin
 ```
 
 add user to system:
 ```
-    sudo adduser testadmin
+sudo adduser testadmin
 ```
 
 log into the psql server:
 ```
-    sudo -u testadmin psql
+sudo -u testadmin psql
 ```
 
 test database connection:
 ```
-    \conninfo
+\conninfo
 ```
 create the test table for test events:
 ```
-    create table time_event (
-        time timestamp with time zone, // or time timestampz
-        data text
-    );
+create table time_event (
+    time timestamp with time zone, // or time timestampz
+    data text
+);
 ```
 
 On server startup, check if a database has been created and populated with the 
