@@ -107,11 +107,13 @@ test database connection:
 create the test table for test events:
 ```
 create table time_event (
-    time timestamp with time zone, // or time timestampz
+    time text // timestamp with time zone or time timestampz
     data text
 );
 ```
-
+In the query, dealing with timestampz in rust postgres is a pita at the moment.
+Using a text value to make progress for now. However, the data type should be a
+timestamp with time zone type
 On server startup, check if a database has been created and populated with the 
 following tables:
 - TimeEvent => time:data             timestampz:text
