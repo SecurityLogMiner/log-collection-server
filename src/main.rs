@@ -1,3 +1,4 @@
+
 mod database;
 use std::net::{TcpListener, TcpStream};
 use postgres::{Client, NoTls};
@@ -6,11 +7,11 @@ use chrono::{DateTime, Utc};
 use std::io::{Read, Write};
 use std::str;
 
-// see readme
 
 // this function needs to have a db connection established so the stream can write
 // to it. 
 fn handle_client(mut stream: TcpStream) {
+
     let mut client = Client::connect(
         "host=localhost user=testadmin password=testadmin", 
         NoTls).unwrap();

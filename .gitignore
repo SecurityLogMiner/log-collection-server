@@ -12,3 +12,4 @@ instance_connect.sh
 # weird draw.io backup files when a diagram is open.
 \.\$*.bkp
 \.\$.*
+
