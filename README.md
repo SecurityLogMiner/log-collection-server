@@ -1,6 +1,8 @@
 # Log Collection Server 
 
-A service that listens for incoming log data froma specific source. The received
+
+A service that listens for incoming log data from a specific source. The received
+
 data is stored in a database.
 
 This service also communicates with an api, using JWT to authenticate requests
@@ -9,7 +11,9 @@ on behalf of the client or server service.
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+
 - [DB Setup](#db-setup)
+
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
@@ -49,6 +53,31 @@ cronjob:
 ```
 * * * * * <path_to_your_script>
 0 * * * * echo "" > /var/log/logminer/logs/test.log
+```
+
+To check that your instance has the required packages and to install them, you can 
+run the install-prereq.py file.
+
+install-prereq.py:
+```
+def install_gcc():
+    if platform.dist()[0].lower() == 'ubuntu' and platform.dist()[1].startswith('22'):
+        print('Ubuntu 22 detected. Installing gcc...')
+        os.system('sudo apt update && sudo apt install gcc')
+    else:
+        print('This script only installs gcc on Ubuntu 22.')
+
+
+def install_rust():
+    print('Installing Rust...')
+    os.system('curl --proto \'=https\' --tlsv1.2 -sSf https://sh.rustup.rs | sh')
+
+if __name__ == '__main__':
+    print('Checking system and installing packages...')
+    install_gcc()
+    #Uncomment the next line to install Rust 
+    #install_rust()
+    print('Installation process complete.')
 ```
 
 If you do have a known path of streaming data to read from, supply that path to
@@ -140,5 +169,4 @@ Syn Ack Fin
 Discord, if you know, you know
 
 [Back to top](#table-of-contents)
-
 
